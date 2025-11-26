@@ -1,0 +1,113 @@
+@use "../../../styles/colors" as *;
+
+.section {
+  margin-top: 60px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap:20px
+}
+
+.heading {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  color: $color-accent;
+
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 22px;
+}
+
+.card {
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: 14px;
+  width: 260px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: $color-primary;
+}
+
+.photoWrapper {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 2px solid $color-primary;
+}
+
+.photo {
+  object-fit: cover;
+}
+
+.name {
+  font-size: 15px;
+  color: $color-text-main;
+  text-align: center;
+}
+
+.location {
+  font-size: 13px;
+  color: $color-text-muted;
+}
+
+.text {
+  font-size: 13px;
+  color: $color-primary;
+  text-align: center;
+  opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+
+.track {
+  inset-inline: 10%;
+  width: 400px;
+  align-self: center;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    $color-primary,
+    $color-accent
+  );
+  opacity: 0.4;
+  border-radius: 999px;
+
+  @media (max-width: 900px) {
+    .track{
+      width: 400px;
+    }
+  }
+
+}
+
+@media (max-width:480px){
+  .track{
+    width: 300px;
+  }
+}
+
+
+

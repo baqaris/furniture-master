@@ -1,0 +1,228 @@
+@use "../../../src/styles/colors" as *;
+.page {
+  flex: 1;
+  padding: 24px;
+  background: #020617;
+  color: #e5e7eb;
+  overflow: auto;
+}
+
+.centerText {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.addButton {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  background: #054e20;
+  font-size: 14px;
+  text-decoration: none;
+  color: #e5e7eb;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.addButton:hover {
+
+   background: $color-primary;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.filterItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 220px;
+}
+
+.filterItemCheckbox {
+  display: flex;
+  align-items: flex-end;
+}
+
+.label {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.input,
+.select,
+.textarea {
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  padding: 8px 10px;
+  font-size: 13px;
+  color: #e5e7eb;
+  outline: none;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  border-color: #38bdf8;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.fieldError {
+  font-size: 11px;
+  color: #f97373;
+}
+
+.error {
+  margin-bottom: 12px;
+  font-size: 13px;
+  color: #f87171;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 13px;
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  border-bottom: 1px solid rgba(51, 65, 85, 0.8);
+  text-align: left;
+}
+
+.table th {
+  font-weight: 500;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  opacity: 0.7;
+}
+
+.thumbWrapper {
+  width: 70px;
+  height: 50px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(30, 64, 175, 0.6);
+}
+
+.thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.titleCell {
+  font-weight: 500;
+}
+
+.badgePublished,
+.badgeDraft {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+}
+
+.badgePublished {
+  background: rgba(22, 163, 74, 0.15);
+  color: #4ade80;
+}
+
+.badgeDraft {
+  background: rgba(248, 250, 252, 0.06);
+  color: #e5e7eb;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.actionEdit,
+.actionDelete {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  background: rgba(15, 23, 42, 0.9);
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+  color: #e5e7eb;
+}
+
+.actionEdit:hover {
+  background: rgba(37, 99, 235, 0.85);
+  transform: scale(1.03);
+}
+
+.actionDelete:hover {
+  background: rgba(239, 68, 68, 0.85);
+  transform: scale(1.03);
+}
+
+.actionConfirm {
+  @extend .actionDelete;
+  background: rgba(22, 163, 74, 0.85);
+}
+
+.actionCancel {
+  @extend .actionDelete;
+  background: rgba(148, 163, 184, 0.3);
+}
+
+
+// ვიდეოსთვის
+.videoBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  text-decoration: none;
+  background: rgba(239, 68, 68, 0.16); // ოდნავ YouTube-ის вайბი 😅
+  color: #fecaca;
+  border: 1px solid rgba(248, 113, 113, 0.7);
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.videoBadge:hover {
+  background: rgba(239, 68, 68, 0.3);
+  transform: scale(1.03);
+}
+
+.videoEmpty {
+  font-size: 12px;
+  opacity: 0.5;
+}

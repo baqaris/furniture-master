@@ -1,0 +1,308 @@
+@use "../../src/styles/colors" as *;
+
+/* ---------- SECTION WRAPPER ---------- */
+.section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  color: $color-text-main;
+}
+
+/* ---------- HEADER AREA ---------- */
+.headerRow {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 14px;
+  background: $color-primary-soft;
+  color: $color-primary;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 14px;
+  letter-spacing: 0.3px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: $color-text-main;
+}
+
+.subtitle {
+  font-size: 16px;
+  line-height: 1.6;
+  color: $color-text-muted;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.highlight {
+  color: $color-primary;
+  font-weight: 600;
+}
+
+/* ---------- PHOTOS ---------- */
+
+/* დიდი ჰედერის ფოტო – full-width card */
+.photoHero {
+  margin-top: 24px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid $color-border;
+  box-shadow: $shadow-soft;
+  background: $color-surface-soft;
+}
+
+.photoHeroImage {
+  display: block;
+  width: 100%;
+  height: clamp(220px, 35vw, 380px); // 1440px-ზე wide, მობილურზე არა ზედმეტად მაღალი
+  object-fit: cover;
+}
+
+/* ქვედა სამი ფოტო – ბარათებად */
+.photoRow {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.photoCard {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid $color-border;
+  background: $color-surface;
+  box-shadow: $shadow-soft;
+}
+
+.photoImage {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* ---------- STATS STRIP ---------- */
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.statCard {
+  background: $color-surface;
+  border-radius: 16px;
+  border: 1px solid $color-border;
+  box-shadow: $shadow-soft;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.statNumber {
+  font-size: 24px;
+  font-weight: 700;
+  color: $color-primary;
+}
+
+.statLabel {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: $color-text-main;
+}
+
+.statDesc {
+  font-size: 13px;
+  color: $color-text-muted;
+}
+
+/* ---------- MAIN GRID (2 columns) ---------- */
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+/* individual block */
+.block {
+  background: $color-surface;
+  border: 1px solid $color-border;
+  padding: 26px 28px;
+  border-radius: 16px;
+  box-shadow: $shadow-soft;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.blockTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: $color-text-main;
+}
+
+.blockText {
+  font-size: 15px;
+  color: $color-text-muted;
+  line-height: 1.6;
+}
+
+.quote {
+  color: $color-primary;
+  font-weight: 600;
+}
+
+/* ---------- LISTS ---------- */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.4;
+}
+
+.check {
+  color: $color-accent;
+  font-size: 18px;
+  margin-top: 2px;
+}
+
+.itemText {
+  font-size: 14px;
+  color: $color-text-muted;
+  margin-top: 4px;
+}
+
+/* ---------- STEPS ---------- */
+.steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.steps li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.stepNumber {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: $color-primary-soft;
+  color: $color-primary;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ---------- BOTTOM GRID ---------- */
+.bottomGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+/* highlight card */
+.highlightCard {
+  margin-top: 18px;
+  padding: 16px 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: radial-gradient(circle at top left, rgba(249, 115, 22, 0.12), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(34, 197, 94, 0.12), transparent 55%),
+    $color-surface-soft;
+}
+
+.highlightTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: $color-text-main;
+  margin-bottom: 6px;
+}
+
+.highlightText {
+  font-size: 13px;
+  color: $color-text-muted;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 960px) {
+  .contentGrid,
+  .bottomGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 40px 16px;
+  }
+
+  .statsRow {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .photoImage {
+    height: 160px;
+  }
+}
+
+@media (max-width: 640px) {
+  .statsRow {
+    grid-template-columns: 1fr;
+  }
+
+  .photoRow {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 24px;
+  }
+
+  .block {
+    padding: 20px 18px;
+  }
+
+  .stepNumber {
+    width: 26px;
+    height: 26px;
+    font-size: 14px;
+  }
+
+  .photoRow {
+    grid-template-columns: 1fr;
+  }
+
+  .photoImage {
+    height: 150px;
+  }
+}

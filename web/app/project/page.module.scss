@@ -1,0 +1,348 @@
+@use "../../src/styles/colors" as *;
+
+
+.page {
+  min-height: 100vh;
+  padding: 24px 24px 40px;
+  background: radial-gradient(
+      circle at top,
+      rgba(240, 118, 32, 0.16),
+      transparent 55%
+    ),
+    var(--color-bg);
+  color: var(--color-text-main);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.title {
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.subtitle {
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.error {
+  font-size: 13px;
+  color: var(--color-danger);
+}
+
+/* Filters */
+
+.filters {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.filterItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 220px;
+}
+
+.label {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.input,
+.select {
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-soft);
+  padding: 8px 10px;
+  font-size: 13px;
+  color: var(--color-text-main);
+  outline: none;
+  transition: border-color 0.12s ease, box-shadow 0.12s ease,
+    transform 0.08s ease;
+}
+
+.input::placeholder {
+  color: var(--color-text-muted);
+  opacity: 0.7;
+}
+
+.input:focus,
+.select:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 1px rgba(240, 118, 32, 0.4);
+  transform: translateY(-1px);
+}
+
+.fieldError {
+  font-size: 11px;
+  color: var(--color-danger);
+}
+
+.muted {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.centerText {
+  margin-top: 40px;
+  text-align: center;
+  color: $color-primary;
+}
+
+/* Grid */
+
+.grid {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.card {
+  text-decoration: none;
+  color: inherit;
+}
+
+.cardImageWrapper {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+}
+
+.cardImage {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.02);
+  transition: transform 0.5s ease;
+}
+
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.3),
+    rgba(5, 8, 22, 0.96)
+  );
+  opacity: 0.96;
+  transition: opacity 0.25s ease;
+}
+
+.cardTop {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+}
+
+.cardCategory {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+.cardBottom {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cardTitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: #f9fafb;
+}
+
+.cardDescription {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+/* hover */
+
+.card:hover .cardImage {
+  transform: scale(1.06);
+}
+
+.card:hover .cardOverlay {
+  opacity: 0.9;
+}
+
+/* Category strip – ჰორიზონტალური კატეგორიები */
+
+.categoryStrip {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+/* სქროლის პატარა ვიზუალი, მაგრამ ნაზი */
+.categoryStrip::-webkit-scrollbar {
+  height: 4px;
+}
+
+.categoryStrip::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.categoryStrip::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border-radius: 999px;
+}
+
+.categoryButton {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 11px;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-soft);
+  cursor: pointer;
+  outline: none;
+  text-align: left;
+  color: var(--color-text-main);
+  font-size: 12px;
+  line-height: 1.3;
+  box-shadow: 0 0 0 0 rgba(15, 23, 42, 0.8);
+  transition:
+    border-color 0.14s ease,
+    box-shadow 0.14s ease,
+    background 0.14s ease,
+    transform 0.08s ease;
+}
+
+.categoryButton:hover {
+
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.85);
+  background: var(--color-surface);
+  border-color: $color-primary;
+}
+
+.categoryButton:focus-visible {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 1px rgba(240, 118, 32, 0.6),
+    0 12px 32px rgba(15, 23, 42, 0.9);
+}
+
+
+
+.categoryButtonActive {
+  border-color: var(--color-primary);
+  background: var(--color-surface);
+  box-shadow:
+    0 0 0 1px rgba(240, 118, 32, 0.4),
+    0 14px 36px rgba(15, 23, 42, 0.95);
+}
+
+
+
+.categoryThumbWrapper {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  background: #020617;
+  flex-shrink: 0;
+}
+
+.categoryThumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+.categoryThumbFallback {
+  width: 35px;
+  height: 35px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  background: rgba(15, 23, 42, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+.categoryText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-width: 190px;
+}
+
+.categoryName {
+  font-size: 16px;
+  font-weight: 500;
+  color: $color-primary;
+}
+
+.categoryDescription {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* პატარა ეკრანზე კატეგორიების სტრიპი ჩაჯდეს */
+
+@media (max-width: 640px) {
+  .categoryText {
+    max-width: 150px;
+  }
+}
+
+/* Responsive */
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .page {
+    padding-inline: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+

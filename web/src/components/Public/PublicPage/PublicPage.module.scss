@@ -1,0 +1,215 @@
+@use "../../../styles/colors" as *;
+
+
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 70vh;
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  background: radial-gradient(
+      circle at top left,
+      rgba(249, 115, 22, 0.25),
+      transparent 55%
+    ),
+    $color-bg;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+}
+
+.heroMedia {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.heroImage {
+  object-fit: cover;
+  filter: brightness(0.85);
+  transform: scale(1.03);
+  transition: transform 0.6s ease;
+
+ 
+  animation: slideFade 800ms ease-out forwards;
+}
+
+.hero:hover .heroImage {
+  transform: scale(1.06);
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    rgba(5, 8, 22, 0.92),
+    rgba(5, 8, 22, 0.7),
+    rgba(5, 8, 22, 0.2)
+  );
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+  color: $color-text-main;
+}
+
+.kicker {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: $color-text-muted;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-size: 40px;
+  line-height: 1.1;
+  font-weight: 700;
+ color: $color-primary;
+
+}
+
+.subtitle {
+  font-size: 16px;
+  color: $color-text-muted;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 14px;
+  max-width: 420px;
+  margin-bottom: 22px;
+  color: $color-text-main;
+  opacity: 0.9;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.primaryButton,
+.secondaryButton {
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 14px;
+  border: 1px solid $color-border;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+.primaryButton {
+  background: $color-primary;
+  color: $color-text-invert;
+  border-color: transparent;
+  width: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  
+}
+
+.primaryButton:hover {
+
+  background: lighten($color-primary, 10%);
+}
+
+.secondaryButton {
+  background: rgba(15, 23, 42, 0.9);
+  color: $color-text-main;
+}
+
+.secondaryButton:hover {
+ 
+  background: $color-hover-surface;
+  border-color: $color-primary;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: $color-text-muted;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: $color-accent;
+  box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.22);
+}
+
+/* bullets for slider */
+.bullets {
+  position: absolute;
+  right: 24px;
+  bottom: 20px;
+  display: flex;
+  gap: 8px;
+  z-index: 2;
+}
+
+.bullet {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: 1px solid $color-border;
+  background: rgba(15, 23, 42, 0.7);
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+}
+
+.bulletActive {
+  background: $color-primary;
+  border-color: $color-primary;
+  transform: scale(1.25);
+}
+
+
+@keyframes slideFade {
+  from {
+    opacity: 0;
+    transform: scale(1.01);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 60vh;
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .description {
+    font-size: 13px;
+  }
+
+  .bullets {
+    right: 16px;
+    bottom: 14px;
+  }
+}

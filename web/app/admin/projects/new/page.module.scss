@@ -1,0 +1,446 @@
+@use "../../../../src/styles/colors" as *;
+
+.page {
+  min-height: 100vh;
+  padding: 24px 24px 40px;
+  background: radial-gradient(
+      circle at top,
+      rgba(240, 118, 32, 0.16),
+      transparent 55%
+    ),
+    var(--color-bg);
+  color: var(--color-text-main);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  
+}
+
+/* სათაური */
+.title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+/* ერორების საერთო ტექსტი */
+.error {
+  margin-bottom: 10px;
+  font-size: 13px;
+  color: var(--color-danger);
+}
+
+/* 🔹 ორი სვეტის layout – ფორმა + preview */
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.4fr);
+  gap: 20px;
+  align-items: flex-start;
+}
+
+/* ფორმა – ცენტრში, card სტილში */
+.form {
+  background: var(--color-surface);
+  border-radius: 18px;
+  border: 1px solid var(--color-border);
+  padding: 18px 18px 20px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.85);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* თითო field */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.label {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+/* input / textarea / select – ერთიანი სტილი */
+.input,
+.textarea,
+.select {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-soft);
+  padding: 8px 10px;
+  font-size: 13px;
+  color: var(--color-text-main);
+  outline: none;
+  transition: border-color 0.12s ease, box-shadow 0.12s ease,
+    transform 0.08s ease;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--color-text-muted);
+  opacity: 0.7;
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 1px rgba(240, 118, 32, 0.4);
+  transform: translateY(-1px);
+}
+
+.textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+/* checkbox field */
+.fieldCheckbox {
+  margin-top: 4px;
+}
+
+.checkboxLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--color-text-main);
+
+  input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+    accent-color: var(--color-primary);
+    cursor: pointer;
+  }
+}
+
+/* ველის ქვეშ ერორი */
+.fieldError {
+  font-size: 11px;
+  color: var(--color-danger);
+}
+
+/* submit ღილაკი */
+.submit {
+  align-self: flex-start;
+  margin-top: 4px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(249, 115, 22, 0.8);
+  background: linear-gradient(
+    135deg,
+    rgba(249, 115, 22, 0.92),
+    rgba(234, 88, 12, 0.9)
+  );
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-invert);
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.1s ease;
+  box-shadow: 0 12px 35px rgba(248, 113, 22, 0.4);
+}
+
+.submit:hover:not(:disabled) {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 16px 40px rgba(248, 113, 22, 0.5);
+}
+
+.submit:disabled {
+  opacity: 0.6;
+  cursor: default;
+  box-shadow: none;
+}
+
+/* 🔸 PREVIEW – მხოლოდ desktop-ზე გამოჩნდება */
+
+
+
+.previewCard {
+  background: var(--color-surface);
+  border-radius: 18px;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.85);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.previewImageWrapper {
+  position: relative;
+  min-height: 180px;
+  max-height: 260px;
+  overflow: hidden;
+}
+
+.previewImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.02);
+  transition: transform 0.6s ease-out;
+}
+
+.previewCard:hover .previewImage {
+  transform: scale(1.06);
+}
+
+.previewPlaceholder {
+  width: 100%;
+  height: 100%;
+  min-height: 180px;
+  background: radial-gradient(
+      circle at top,
+      rgba(240, 118, 32, 0.2),
+      transparent 55%
+    ),
+    #020617;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.previewPlaceholder span {
+  font-weight: 500;
+  color: var(--color-text-main);
+}
+
+.previewOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.4),
+    rgba(5, 8, 22, 0.98)
+  );
+}
+
+.previewHeader {
+  position: absolute;
+  inset-inline: 14px;
+  bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.previewCategory {
+  align-self: flex-start;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+.previewTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #f9fafb;
+}
+
+/* preview body */
+
+.previewBody {
+  padding: 12px 14px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.previewDescription {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.previewMetaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.previewStatusPublished,
+.previewStatusDraft {
+  font-size: 11px;
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+
+.previewStatusPublished {
+  background: rgba(34, 197, 94, 0.14);
+  color: #4ade80;
+}
+
+.previewStatusDraft {
+  background: rgba(148, 163, 184, 0.18);
+  color: #e5e7eb;
+}
+
+.previewMetaText {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+/* პატარა გალერეა preview-ში */
+.previewGallery {
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.previewThumb {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  background: var(--color-surface-soft);
+  height: 52px;
+}
+
+.previewThumbImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.previewHint {
+  margin-top: 8px;
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .previewWrapper {
+    display: none; /* 💥 ტელეფონზე / პატარა ეკრანზე preview იმალება */
+  }
+
+  .page {
+    padding-inline: 16px;
+  }
+
+  .form {
+    padding-inline: 14px;
+  }
+}
+
+
+.fieldHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.helperText {
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+/* გალერეის სლოტები */
+.galleryRows {
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.galleryRow {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: center;
+  gap: 10px;
+}
+
+.galleryLabel {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+/* ლამაზი file ღილაკი */
+.fileButton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-soft);
+  font-size: 12px;
+  color: var(--color-text-main);
+  cursor: pointer;
+  transition: border-color 0.12s ease, background 0.12s ease, transform 0.08s ease;
+
+  input[type="file"] {
+    display: none;
+  }
+
+  &:hover {
+    border-color: var(--color-primary);
+    background: rgba(15, 23, 42, 0.9);
+   
+  }
+}
+
+/* upload loader */
+.uploadSpinner {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+.spinnerCircle {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  border: 2px solid rgba(148, 163, 184, 0.5);
+  border-top-color: var(--color-primary);
+  animation: spin 0.7s linear infinite;
+}
+
+.spinnerText {
+  opacity: 0.9;
+}
+
+/* პატარა thumbnail */
+.galleryThumb {
+  justify-self: flex-end;
+  width: 54px;
+  height: 40px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  background: var(--color-surface-soft);
+}
+
+.galleryThumbImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* უკვე გაქვს spin keyframes ზემოთ? თუ არა – დაამატე */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

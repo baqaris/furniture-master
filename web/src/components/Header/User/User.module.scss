@@ -1,0 +1,136 @@
+@use "../../../styles/colors" as *;
+
+.LoginButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 9999px;
+  background: $color-primary;
+  height: 60px;
+  width: 60px;
+  border: 1px solid $color-border;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+
+  a {
+    color: $color-text-main;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+    background: $color-primary-soft;
+  }
+}
+
+/* 🔽 Dropdown wrapper – არ აფუჭებს ჰედერს */
+.profileWrapper {
+  position: relative; // მნიშვნელოვანია, რომ dropdown ამაზე დაჯდეს
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ღილაკი, რომელიც აჩენს მენიუს */
+.profileTrigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 9999px;
+  background: $color-surface-soft;
+  border: 1px solid $color-border;
+  cursor: pointer;
+  color: $color-text-main;
+  font-size: 14px;
+  line-height: 1;
+  transition: transform 0.15s ease, background 0.15s ease;
+
+  &:hover {
+    
+    background: $color-hover-surface;
+  }
+}
+
+.avatarImage{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+}
+
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.name {
+  max-width: 120px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 14px;
+}
+
+/* ჩამოშლადი მენიუ */
+.dropdown {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  min-width: 220px;
+  background: $color-surface;
+  border-radius: 12px;
+  border: 1px solid $color-border;
+  padding: 10px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.65);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.greeting {
+  font-size: 13px;
+  color: $color-text-muted;
+  
+}
+
+.menuItem,
+.menuItemDanger {
+  width: 100%;
+  text-align: left;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  color: $color-text-main;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.menuItem:hover {
+  background: $color-primary-soft;
+ 
+}
+
+.menuItemDanger {
+  color: $color-danger;
+
+  &:hover {
+    background: rgba(248, 113, 113, 0.12);
+   
+  }
+}
+
+
+@media (max-width:480px){
+    .dropdown{
+        top:110%;
+        right: -68%;
+    }
+}

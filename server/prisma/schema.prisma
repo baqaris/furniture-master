@@ -1,0 +1,46 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model ContactMessage {
+  id          Int      @id @default(autoincrement())
+  name        String
+  phone       String
+  email       String?
+  projectType String?
+  message     String
+  preferPhone Boolean? @default(false)
+  preferEmail Boolean? @default(false)
+  isRead      Boolean  @default(false)
+  createdAt   DateTime @default(now())
+}
+
+model Category {
+  id          Int       @id @default(autoincrement())
+  name        String
+  description String
+  imageUrl    String
+  projects    Project[]
+}
+
+model Project {
+  id           Int      @id @default(autoincrement())
+  title        String
+  description  String
+  categoryId   Int
+  category     Category @relation(fields: [categoryId], references: [id])
+  imageUrl     String
+  // gallery-ს DB-ში JSON-ად შევინახავთ
+  galleryJson  String?
+  videoUrl     String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  isPublished  Boolean  @default(true)
+}

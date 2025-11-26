@@ -1,0 +1,151 @@
+@use "../../../styles/colors" as *;
+
+.navigation {
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  min-height: 48px;
+  padding: 6px 12px;
+  position: relative; // dropdown რომ დაეკიდოს
+  border-bottom: 1px solid $color-primary;
+  box-shadow: $shadow-navigation;
+}
+
+/* burger ღილაკი – desktop-ზე დაიმალება, მობილურზე გამოჩნდება */
+.burger {
+  display: none;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid $color-border;
+  background: rgba(15, 23, 42, 0.96);
+  color: $color-text-main;
+  font-size: 12px;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.8);
+}
+
+.burgerLines {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+
+  span {
+    width: 14px;
+    height: 2px;
+    border-radius: 999px;
+    background: $color-text-main;
+  }
+}
+
+.burgerLabel {
+  font-size: 12px;
+}
+
+/* default – desktop მენიუ */
+.navList {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  list-style: none;
+  padding: 4px 10px;
+  margin: 0;
+}
+
+.links {
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+
+  a,
+  span {
+    color: $color-text-main;
+    text-decoration: none;
+    transition: color 0.12s ease;
+  }
+}
+
+.links:hover a,
+.links:hover span {
+  color: $color-primary;
+
+}
+
+/* active route */
+.active a,
+.active span {
+  color: $color-accent;
+}
+
+/* „მალე“ ელემენტები */
+.disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.badgeSoon {
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  color: $color-text-muted;
+}
+
+/* 📱 Mobile */
+@media (max-width: 768px) {
+  .navigation {
+    width: 100%;
+    justify-content: flex-end;
+    padding: 4px 10px;
+
+  }
+
+  .burger {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .navList {
+    position: absolute;
+    top: 105%;
+    left: 0;
+    right: 0;
+    margin-top: 4px;
+    border-radius: 12px;
+    background: $color-burger-bachground;
+    padding: 8px 10px;
+    flex-direction: column;
+    gap: 6px;
+
+    /* dropdown-ის ანიმაცია */
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transition:
+      max-height 0.18s ease-out,
+      opacity 0.15s ease-out;
+      z-index: 100;
+  }
+
+  .navListOpen {
+    max-height: 260px;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .links {
+    font-size: 13px;
+  }
+}
+
+/* ძალიან პატარა ტელეფონი */
+@media (max-width: 480px) {
+  .navigation {
+    padding: 4px 8px;
+  }
+}

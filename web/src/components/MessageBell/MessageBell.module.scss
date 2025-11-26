@@ -1,0 +1,82 @@
+@use "../../styles/colors" as *;
+
+
+.wrapper {
+   position: absolute;
+   z-index: 1000;
+   top: 5px;
+  right: 200px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 10px;
+    background: $color-surface-soft;
+    border: 1px solid $color-border;
+    box-shadow: $shadow-soft;
+    transition: background 0.16s ease, transform 0.12s ease;
+}
+
+.wrapper:hover {
+    background: $color-surface;
+   
+}
+
+.icon {
+    font-size: 22px;
+    color: $color-primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 🔴 badge */
+.badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: $color-danger;
+    color: $color-text-invert;
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 999px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    font-weight: 600;
+    box-shadow: 0 0 8px rgba(239, 68, 68, 0.45);
+}
+
+/* 💥 vibration animation */
+.vibrate {
+    animation: wiggle 1.6s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    15% {
+        transform: rotate(6deg);
+    }
+
+    30% {
+        transform: rotate(-6deg);
+    }
+
+    45% {
+        transform: rotate(4deg);
+    }
+
+    60% {
+        transform: rotate(-4deg);
+    }
+
+    75% {
+        transform: rotate(2deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}

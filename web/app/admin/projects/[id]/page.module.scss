@@ -1,0 +1,404 @@
+@use "../../../../src/styles/colors" as *;
+
+.page {
+  min-height: 100vh;
+  background: radial-gradient(
+      circle at top,
+      rgba(240, 118, 32, 0.16),
+      transparent 55%
+    ),
+    var(--color-bg);
+  color: var(--color-text-main);
+  padding: 20px 24px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Center states (loading / error) */
+.center {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+.loader {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 3px solid rgba(148, 163, 184, 0.2);
+  border-top-color: var(--color-primary);
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error {
+  color: var(--color-danger);
+  font-size: 14px;
+}
+
+.backButton {
+  margin-top: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: rgba(15, 23, 42, 0.9);
+  color: var(--color-text-main);
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.backButton:hover {
+  background: var(--color-hover-surface);
+  transform: scale(1.02);
+}
+
+/* Top bar */
+
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.backLink {
+  background: transparent;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: 13px;
+  cursor: pointer;
+  padding: 4px 0;
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.backLink:hover {
+  color: var(--color-primary);
+  transform: translateX(-2px);
+}
+
+.badgesRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.badgeId,
+.badgePublished,
+.badgeDraft {
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: rgba(15, 23, 42, 0.92);
+}
+
+.badgePublished {
+  border-color: rgba(34, 197, 94, 0.7);
+  background: rgba(34, 197, 94, 0.1);
+  color: #4ade80;
+}
+
+.badgeDraft {
+  border-color: rgba(148, 163, 184, 0.6);
+  background: rgba(15, 23, 42, 0.9);
+}
+
+/* Hero section */
+
+.hero {
+  margin-top: 4px;
+}
+
+.heroImageWrapper {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: var(--color-surface-soft);
+  min-height: 260px;
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.02);
+  transition: transform 0.7s ease-out;
+}
+
+.heroImageWrapper:hover .heroImage {
+  transform: scale(1.06);
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.45),
+    rgba(5, 8, 22, 0.96)
+  );
+}
+
+.heroContent {
+  position: absolute;
+  inset-inline: 20px;
+  bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.categoryPill {
+  align-self: flex-start;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  backdrop-filter: blur(10px);
+}
+
+.heroTitle {
+  font-size: 26px;
+  font-weight: 600;
+  color: #f9fafb;
+  text-shadow: 0 14px 35px rgba(0, 0, 0, 0.9);
+}
+
+.metaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 13px;
+  color: rgba(226, 232, 240, 0.9);
+}
+
+.metaItem {
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.75);
+}
+
+/* Main content */
+
+.mainSection {
+  margin-top: 20px;
+}
+
+.mainContent {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+  gap: 18px;
+}
+
+.sectionTitle {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.descriptionCard,
+.infoCard {
+  background: var(--color-surface);
+  border-radius: 16px;
+  border: 1px solid var(--color-border);
+  padding: 16px 16px 18px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.75);
+}
+
+.descriptionText {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+  margin-bottom: 14px;
+}
+
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.infoLabel {
+  color: var(--color-text-muted);
+}
+
+.infoValue {
+  color: var(--color-text-main);
+}
+
+.infoStatusPublished,
+.infoStatusDraft {
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.infoStatusPublished {
+  background: rgba(34, 197, 94, 0.12);
+  color: #4ade80;
+}
+
+.infoStatusDraft {
+  background: rgba(148, 163, 184, 0.12);
+  color: #e5e7eb;
+}
+
+.ctaButton {
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(249, 115, 22, 0.8);
+  background: linear-gradient(
+    135deg,
+    rgba(249, 115, 22, 0.9),
+    rgba(234, 88, 12, 0.9)
+  );
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-invert);
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  box-shadow: 0 10px 30px rgba(249, 115, 22, 0.35);
+}
+
+.ctaButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 40px rgba(249, 115, 22, 0.45);
+}
+
+/* Gallery */
+
+.gallerySection {
+  margin-top: 26px;
+}
+
+.galleryHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.galleryHint {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.galleryItem {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  background: var(--color-surface-soft);
+}
+
+.galleryImage {
+  width: 100%;
+  height: 100%;
+  min-height: 110px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease-out;
+}
+
+.galleryItem:hover .galleryImage {
+  transform: scale(1.06);
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .mainContent {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .heroImageWrapper {
+    min-height: 220px;
+  }
+
+  .heroTitle {
+    font-size: 22px;
+  }
+
+  .galleryGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding-inline: 16px;
+    padding-top: 16px;
+  }
+
+  .galleryGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .topBar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+
+// ვიდეოსთვის
+/* Video section */
+
+.videoSection {
+  margin-top: 24px;
+}
+
+.videoHint {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin-bottom: 8px;
+}
+
+.videoWrapper {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.8);
+  max-width: 880px;
+}
+
+.videoFrame {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+  display: block;
+}

@@ -1,0 +1,192 @@
+@use "../../styles/colors" as *;
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  width: 220px;
+  background: linear-gradient(
+      180deg,
+      rgba(15, 23, 42, 0.98),
+      rgba(2, 6, 23, 1)
+    );
+  border-right: 1px solid var(--color-border);
+  padding: 16px 14px;
+  gap: 18px;
+  position: relative;
+  z-index: 20; // რომ კონტენტზე წინ იყოს
+}
+
+/* logo area */
+.logoBox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+.logoCircle {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: radial-gradient(
+    circle at 30% 20%,
+    rgba(249, 115, 22, 0.95),
+    rgba(15, 23, 42, 1)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--color-text-invert);
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.logoTitle {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.logoSubtitle {
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+/* menu */
+.nav {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--color-text-main);
+  transition: background 0.12s ease, transform 0.08s ease, color 0.12s ease;
+}
+
+.menuItem:hover {
+  background: rgba(15, 23, 42, 0.9);
+ 
+}
+
+.menuItemActive {
+  background: rgba(15, 23, 42, 0.95);
+  box-shadow: 0 10px 30px rgba(249, 115, 22, 0.35);
+  color: #fef9c3;
+}
+
+.menuItemDisabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.menuBullet {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.9);
+  background: rgba(15, 23, 42, 1);
+}
+
+.menuItemActive .menuBullet {
+  border-color: rgba(249, 115, 22, 0.9);
+  background: rgba(249, 115, 22, 0.9);
+}
+
+.menuLabel {
+  flex: 1;
+}
+
+.badgeSoon {
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  color: var(--color-text-muted);
+}
+
+/* მობილური toggle ღილაკი */
+.mobileToggle {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 25;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  background: rgba(15, 23, 42, 0.96);
+  color: var(--color-text-main);
+  font-size: 12px;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.8);
+}
+
+/* backdrop – მხოლოდ მობილურზე გამოყენება */
+.backdrop {
+  display: none;
+}
+
+/* 📱 Mobile styles */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -240px; // ეკრანიდან გარეთ
+    height: 100dvh;
+    z-index: 24;
+    transition: left 0.18s ease-out;
+  }
+
+  .sidebarOpen {
+    left: 0;
+  }
+
+  .mobileToggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(3px);
+    z-index: 23;
+  }
+}
+
+/* 💻 Desktop – ძველი ქცევა რჩება */
+@media (min-width: 769px) {
+  .mobileToggle {
+    display: none;
+  }
+
+  .backdrop {
+    display: none;
+  }
+}

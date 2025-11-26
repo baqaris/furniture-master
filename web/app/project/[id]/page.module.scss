@@ -1,0 +1,410 @@
+@use "../../../src/styles/colors" as *;
+
+
+.page {
+  min-height: 100vh;
+  padding: 24px 24px 40px;
+  background: radial-gradient(
+      circle at top,
+      rgba(240, 118, 32, 0.16),
+      transparent 55%
+    ),
+    var(--color-bg);
+  color: var(--color-text-main);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.centerText {
+  margin-top: 40px;
+  text-align: center;
+  color:$color-primary;
+}
+
+/* Back button */
+
+.backButton {
+  align-self: flex-start;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  background: rgba(15, 23, 42, 0.9);
+  font-size: 12px;
+  color: var(--color-text-main);
+  cursor: pointer;
+  transition: background 0.12s ease, transform 0.08s ease;
+}
+
+.backButton:hover {
+  background: $color-primary;
+  
+}
+
+/* Hero */
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.2fr);
+  gap: 22px;
+  align-items: flex-start;
+}
+
+.heroImageWrapper {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 22px 55px rgba(15, 23, 42, 0.95);
+}
+
+.heroImage {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.02);
+  transition: transform 0.6s ease-out;
+}
+
+.heroImageWrapper:hover .heroImage {
+  transform: scale(1.06);
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      circle at top,
+      rgba(15, 23, 42, 0.15),
+      transparent 45%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.4),
+      rgba(5, 8, 22, 0.98)
+    );
+}
+
+.heroHeader {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.heroCategory {
+  align-self: flex-start;
+  padding: 4px 11px;
+  border-radius: 999px;
+  font-size: 11px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+.heroTitle {
+  font-size: 22px;
+  font-weight: 600;
+  color: #f9fafb;
+}
+
+.heroMeta {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+/* Right side */
+
+.heroInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.description {
+  font-size: 13px;
+  color: var(--color-text-main);
+  line-height: 1.6;
+}
+
+.infoBox {
+  padding: 12px 14px;
+  border-radius: 16px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.infoTitle {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.infoList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.infoList li {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.infoList span {
+  color: var(--color-text-muted);
+}
+
+.infoList strong {
+  font-weight: 500;
+}
+
+/* Contact box */
+
+.contactBox {
+  padding: 12px 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  background: radial-gradient(
+      circle at top left,
+      rgba(34, 197, 94, 0.12),
+      transparent 55%
+    ),
+    rgba(15, 23, 42, 0.98);
+}
+
+.contactText {
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.contactActions {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.primaryButton,
+.secondaryButton {
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.primaryButton {
+  background: linear-gradient(
+    135deg,
+    rgba(34, 197, 94, 0.95),
+    rgba(22, 163, 74, 0.95)
+  );
+  color: var(--color-text-invert);
+  box-shadow: 0 12px 35px rgba(22, 163, 74, 0.6);
+}
+
+.secondaryButton {
+  border-color: rgba(148, 163, 184, 0.7);
+  color: var(--color-text-main);
+  background: rgba(15, 23, 42, 0.9);
+}
+
+/* Gallery */
+
+.gallerySection {
+  margin-top: 10px;
+}
+
+.galleryTitle {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.galleryItem {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  background: var(--color-surface-soft);
+  height: 90px;
+}
+
+
+.galleryImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Responsive */
+
+@media (max-width: 1024px) {
+  .page {
+    padding-inline: 16px;
+  }
+
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .heroImage {
+    height: 260px;
+  }
+
+  .galleryGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .galleryGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+//ფოტოს გადიდება 
+
+/* Lightbox */
+
+.lightboxOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 7, 20, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  padding: 16px;
+}
+
+.lightboxContent {
+  position: relative;
+  max-width: min(960px, 100%);
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.lightboxImageWrapper {
+  flex: 1;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-soft);
+  box-shadow: 0 22px 55px rgba(15, 23, 42, 0.95);
+}
+
+.lightboxImage {
+  width: 100%;
+  height: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  display: block;
+}
+
+/* Buttons */
+
+.lightboxClose {
+  position: absolute;
+  top: 0;
+  right: 45px;
+  border: none;
+  border-radius: 5px;
+  padding: 4px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  background: rgba(15, 23, 42, 0.9);
+  color: var(--color-text-main);
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  transition: background 0.12s ease, transform 0.08s ease;
+}
+
+.lightboxClose:hover {
+  background: $color-primary;
+ 
+}
+
+
+.lightboxPrev,
+.lightboxNext {
+  border: none;
+  border-radius: 999px;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  background: rgba(15, 23, 42, 0.9);
+  color: var(--color-text-main);
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+  transition: background 0.12s ease, transform 0.08s ease;
+}
+
+.lightboxPrev:hover,
+.lightboxNext:hover {
+  background: rgba(5, 46, 94, 0.95);
+ 
+}
+
+/* Cursor for gallery items */
+
+.galleryItem {
+  cursor: pointer;
+}
+
+
+
+//ვიდეო
+
+
+.videoSection {
+  margin-top: 16px;
+
+}
+
+.videoHint {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin-bottom: 8px;
+}
+
+.videoWrapper {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.8);
+  max-width: 880px;
+}
+
+.videoFrame {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+  display: block;
+}
+
+

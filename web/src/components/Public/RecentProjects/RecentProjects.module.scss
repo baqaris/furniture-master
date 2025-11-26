@@ -1,0 +1,184 @@
+@use "../../../styles/colors" as *;
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background: $color-body-background;
+}
+
+.heading {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  align-self: center;
+  justify-content: center;
+  display: flex;
+  color: $color-accent;
+}
+
+
+
+.lines {
+  width: 350px;
+  inset-inline: 10%;
+  margin-bottom: 20px;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    $color-primary,
+    $color-accent
+  );
+  opacity: 0.4;
+  border-radius: 999px;
+
+  @media (max-width: 480px) {
+   .lines{
+    width: 300px;
+   }
+  }
+}
+
+
+
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* შიგნით მოძრავი ლენტი */
+.track {
+  display: flex;
+  gap: 14px;
+  /* აქ ხდება მორბენა */
+  animation: scroll 30s linear infinite;
+}
+
+/* hover-ზე გავაჩეროთ მოძრაობა */
+.marquee:hover .track {
+  animation-play-state: paused;
+}
+
+/* თითო ბარათი – ფიქსირებული სიგანე, რომ რიგში დარჩეს */
+.card {
+  flex: 0 0 340px; 
+  background: $color-surface;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid $color-border;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.wiewMore{
+  color: $color-primary;
+  display: flex;
+  gap:5px;
+  align-items: center;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+
+.image {
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .image {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 40%,
+    rgba(0, 0, 0, 0.55)
+  );
+}
+
+.info {
+  padding: 12px 16px;
+}
+
+.title {
+  font-size: 15px;
+  font-weight: 600;
+  color: $color-text-main;
+}
+
+.location {
+  margin-top: 4px;
+  font-size: 13px;
+  color: $color-text-muted;
+}
+
+/* keyframes – უწყვეტი სლაიდი */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* რადგან projects ორჯერ გვყავს, -50% წაშლის პირველ ნახევარს
+       და მეორე ნახევარი ზუსტად იგივე გაგრძელებაა */
+    transform: translateX(-50%);
+  }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  .section {
+    padding: 16px 12px;
+  }
+
+  .heading {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .card {
+    flex: 0 0 260px;
+  }
+
+  .imageWrapper {
+    height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .heading {
+    font-size: 18px;
+  }
+
+  .card {
+    flex: 0 0 220px;
+  }
+
+  .imageWrapper {
+    height: 150px;
+  }
+
+  .info {
+    padding: 10px 12px;
+  }
+
+  .title {
+    font-size: 14px;
+  }
+
+  .location {
+    font-size: 12px;
+  }
+}
+
+

@@ -1,0 +1,45 @@
+@use "../../styles/colors" as *;
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background:
+    radial-gradient(circle at top left, rgba(34, 197, 94, 0.18), transparent 55%),
+    radial-gradient(circle at bottom right,  rgba(249, 116, 22, 0.103), transparent 50%),
+    $color-bg;
+  padding: 10px 30px;
+  border-bottom: 1px solid $color-border;
+  
+}
+
+
+@media (max-width: 1440px) {
+  .header {
+    padding: 10px 24px;
+    
+  }
+}
+
+
+@media (max-width: 768px) {
+  .header {
+    padding: 8px 16px;
+    flex-direction: column;
+    gap: 8px;
+     background:
+    radial-gradient(circle at top left, rgba(249, 116, 22, 0.103), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(34, 197, 94, 0.18), transparent 50%),
+    $color-bg;
+  }
+}
+
+@media (max-width: 480px) {
+    .header{
+        padding: 4px 8px;
+        
+    }
+ }
+
+ 

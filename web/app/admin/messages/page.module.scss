@@ -1,0 +1,434 @@
+@use "../../../src/styles/colors" as*;
+
+
+.page {
+  width: 100%;
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: $color-text-main;
+  background: transparent;
+}
+
+.loadingWrap {
+  width: 100%;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-text-muted;
+}
+
+/* ---------- HEADER ---------- */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.header h1 {
+  font-size: 20px;
+  font-weight: 600;
+  color: $color-text-main;
+}
+
+.refreshButton {
+  border-radius: 999px;
+  border: 1px solid $color-border;
+  background: $color-input-bg;
+  color: $color-text-main;
+  font-size: 13px;
+  padding: 6px 14px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.15s ease, transform 0.15s ease,
+    box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.refreshButton:hover {
+  background: $color-hover-surface;
+  border-color: $color-info;
+  box-shadow: $shadow-soft;
+  transform: translateY(-1px);
+}
+
+.refreshButton:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* ---------- LAYOUT ---------- */
+
+.layout {
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+  gap: 18px;
+  min-height: 360px;
+}
+
+/* ---------- LIST COLUMN ---------- */
+
+.list {
+  background: $color-surface;
+  border-radius: 5px;
+  border: 1px solid $color-border;
+  box-shadow: $shadow-soft;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 540px;
+  overflow-y: auto;
+
+  /* 🔽 scrollbar სტილინგი */
+
+  // Firefox
+  scrollbar-width: thin; // უფრო ვიწრო
+  scrollbar-color: rgba(148, 163, 184, 0.6) transparent;
+
+  // Chrome / Edge / Safari
+  &::-webkit-scrollbar {
+    width: 6px; // ვიწრო
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent; // არანაირი დიდი თეთრი ზოლი
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.65); // ნაზად ნაცრისფერი
+    border-radius: 999px;
+    border: 1px solid rgba(15, 23, 42, 0.9); // ცოტა „ჩასმული“ იყოს
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgba(148, 163, 184, 0.9);
+  }
+}
+
+
+.muted {
+  font-size: 13px;
+  color: $color-text-muted;
+  padding: 8px 4px;
+}
+
+.listItem {
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 10px;
+  border-radius: 12px;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: background 0.15s ease, transform 0.12s ease,
+    box-shadow 0.12s ease, border-color 0.12s ease;
+  border: 1px solid transparent;
+}
+
+.listItem:hover {
+  background: rgba(15, 23, 42, 0.9);
+  border-color: rgba(148, 163, 184, 0.5);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+}
+
+.listItemActive {
+  background: radial-gradient(
+      circle at top left,
+      rgba(249, 115, 22, 0.16),
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(34, 197, 94, 0.16),
+      transparent 55%
+    ),
+    rgba(15, 23, 42, 0.96);
+  border-color: $color-primary;
+  box-shadow: $shadow-soft;
+}
+
+.listItemHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.listName {
+  font-size: 14px;
+  font-weight: 500;
+  color: $color-text-main;
+}
+
+.unreadDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: $color-accent;
+  box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.18);
+  flex-shrink: 0;
+}
+
+.listMessagePreview {
+  font-size: 13px;
+  color: $color-text-muted;
+}
+
+.listMeta {
+  font-size: 11px;
+  color: $color-text-muted;
+  opacity: 0.8;
+}
+
+/* ---------- DETAIL COLUMN ---------- */
+
+.detail {
+  background: $color-surface;
+  border-radius: 16px;
+  border: 1px solid $color-border;
+  box-shadow: $shadow-soft;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 260px;
+}
+
+.detailHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.detailName {
+  font-size: 18px;
+  font-weight: 600;
+  color: $color-text-main;
+}
+
+.detailMeta {
+  font-size: 13px;
+  color: $color-text-muted;
+}
+
+.deleteButton {
+  border-radius: 5px;
+  border: 1px solid rgba(239, 68, 68, 0.8);
+  background: rgba(127, 29, 29, 0.7);
+  color: $color-text-main;
+  font-size: 13px;
+  padding: 6px 14px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.15s ease, transform 0.12s ease,
+    box-shadow 0.12s ease, border-color 0.12s ease;
+}
+
+.deleteButton:hover {
+  background: rgba(127, 29, 29, 0.95);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.7);
+
+}
+
+.deleteButton:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.detailTag {
+  font-size: 13px;
+  color: $color-info;
+}
+
+.detailBox {
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  background: rgba(15, 23, 42, 0.96);
+  padding: 12px 12px;
+}
+
+.detailMessage {
+  font-size: 14px;
+  color: $color-text-main;
+  line-height: 1.6;
+}
+
+.detailPreferences {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  margin-top: 4px;
+  font-size: 12px;
+  color: $color-text-muted;
+}
+
+.detailPreferences span {
+  border-radius: 999px;
+  padding: 4px 10px;
+  background: $color-chip-bg;
+  border: 1px solid $color-chip-border;
+}
+
+/* ---------- ERROR TEXT ---------- */
+
+.errorText {
+  font-size: 13px;
+  color: $color-danger;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 1024px) {
+  .layout {
+    grid-template-columns: 260px minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 16px;
+  }
+
+  .layout {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .list {
+    max-height: 260px;
+  }
+}
+
+
+/* ---------- CONFIRM DELETE MODAL ---------- */
+
+.confirmOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(15, 23, 42, 0.78);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.confirmBox {
+  max-width: 380px;
+  width: 100%;
+  border-radius: 20px;
+  background: radial-gradient(
+      circle at top left,
+      rgba(239, 68, 68, 0.16),
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(148, 163, 184, 0.12),
+      transparent 55%
+    ),
+    $color-surface-soft;
+ 
+  box-shadow: $shadow-strong;
+  padding: 20px 22px 18px;
+  animation: confirmPop 0.22s ease-out;
+}
+
+.confirmTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: $color-text-main;
+  margin-bottom: 8px;
+}
+
+.confirmText {
+  font-size: 13px;
+  color: $color-text-muted;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.confirmActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.confirmDanger {
+  border-radius: 5px;
+  border: 1px solid rgba(239, 68, 68, 0.9);
+  background: rgba(127, 29, 29, 0.9);
+  color: $color-text-main;
+  font-size: 13px;
+  padding: 6px 14px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.15s ease, transform 0.12s ease,
+    box-shadow 0.12s ease, border-color 0.12s ease;
+}
+
+.confirmDanger:hover {
+  background: rgba(185, 28, 28, 1);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.8);
+ 
+}
+
+.confirmDanger:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.confirmGhost {
+  border-radius:5px;
+  border: 1px solid $color-border;
+  background: rgba(15, 23, 42, 0.96);
+  color: $color-text-main;
+  font-size: 13px;
+  padding: 6px 14px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.15s ease, transform 0.12s ease,
+    box-shadow 0.12s ease, border-color 0.12s ease;
+}
+
+.confirmGhost:hover {
+  background: $color-hover-surface;
+  border-color: rgba(148, 163, 184, 0.8);
+  box-shadow: $shadow-soft;
+  
+}
+
+.confirmGhost:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+@keyframes confirmPop {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

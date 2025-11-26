@@ -1,0 +1,115 @@
+@use "../../styles/colors" as *;
+.wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.wrapperVisible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.bar {
+  max-width: 1200px;
+  margin: 8px auto;
+  padding: 8px 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  background:$color-body-background;
+  border-radius: 12px;
+  border: 1px solid $color-border;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.521);
+  backdrop-filter: blur(10px);
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+}
+
+.masterName {
+  font-size: 14px;
+  font-weight: 600;
+  color: $color-text-main;
+}
+
+.subtitle {
+  font-size: 12px;
+  color: $color-text-muted;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.link {
+  font-size: 13px;
+  color: $color-text-main;
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.link:hover {
+  background: rgba(255, 255, 255, 0.075);
+ 
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  .bar {
+    margin: 8px 10px;
+    padding: 8px 12px;
+  }
+
+  .masterName {
+    font-size: 13px;
+  }
+
+  .subtitle {
+    font-size: 11px;
+  }
+
+  .right {
+    gap: 8px;
+  }
+
+  .link {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+}
+
+@media (max-width: 480px) {
+ 
+
+  .right {
+    width: 100%;
+    justify-content: center;
+  }
+  .left{
+    display: none;
+    
+
+  }
+}

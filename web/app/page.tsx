@@ -1,4 +1,4 @@
-//app\[locale]\page.tsx
+//app/page.tsx
 "use client"
 import RecentProjects from "@/src/components/Public/RecentProjects/RecentProjects";
 import styles from "./page.module.scss";

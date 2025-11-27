@@ -7,7 +7,7 @@ async function bootstrap() {
 
   const allowedOrigins = [
     'http://localhost:3000',
-    process.env.FRONTEND_URL, // ამას პროდაქშენში მივცემთ, ვერსელის დომენს
+    'https://furniture-master-sigma.vercel.app', 
   ].filter(Boolean);
 
   app.enableCors({
@@ -18,6 +18,6 @@ async function bootstrap() {
   app.setGlobalPrefix('api');
 
   const port = process.env.PORT ? Number(process.env.PORT) : 4000;
-  await app.listen(port, '0.0.0.0'); // 0.0.0.0 აუცილებელია ჰოსტინგებზე
+  await app.listen(port, '0.0.0.0'); 
 }
 bootstrap();

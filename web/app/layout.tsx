@@ -17,11 +17,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// არ დამავიწყდეს რეალური დომეინის ჩასმა როცა ვიყიდი
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL
-    ? new URL(process.env.NEXT_PUBLIC_SITE_URL)
-    : new URL("https://furniture-master-sigma.vercel.app/");
+
+// env-ში MUST იყოს სრული მისამართი: https://mydomain.ge 
+const siteUrlString =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  "https://furniture-master-sigma.vercel.app";
+
+const siteUrl = new URL(siteUrlString);
+
+
+const ogImageUrl = new URL("/og/kitchen-og.jpg", siteUrl).toString();
 
 export const metadata: Metadata = {
   metadataBase: siteUrl,
@@ -35,7 +40,7 @@ export const metadata: Metadata = {
     "პროფესიონალი ავეჯის ხელოსანი – სამზარეულოები, გარდერობები, კარადები და სხვა ინდივიდუალური ავეჯის პროექტები ",
 
   keywords: [
-    //ჩემი ენა ქართული და შემოქარგული
+    //ქართული
     "ავეჯი",
     "სამზარეულო",
     "გარდერობი",
@@ -48,37 +53,36 @@ export const metadata: Metadata = {
     "ავეჯი ბათუმი",
     "სამზარეულოს ავეჯი",
     "საძინებლის ავეჯი",
-//ინგლისური
+    //ინგლისური
     "custom furniture",
-  "kitchen furniture",
-  "wardrobe design",
-  "bespoke furniture",
-  "handmade furniture",
-  "interior projects",
-  "furniture master georgia",
-  "modern kitchen design",
-
-  //რურული
-"мебель на заказ",
-  "кухонная мебель",
-  "шкафы на заказ",
-  "гардероб на заказ",
-  "мебель в Батуми",
-  "изготовление мебели",
-  "индивидуальная мебель",
-  "мастер мебели",
+    "kitchen furniture",
+    "wardrobe design",
+    "bespoke furniture",
+    "handmade furniture",
+    "interior projects",
+    "furniture master georgia",
+    "modern kitchen design",
+    //რუსული
+    "мебель на заказ",
+    "кухонная мебель",
+    "шкафы на заказ",
+    "гардероб на заказ",
+    "мебель в Батуми",
+    "изготовление мебели",
+    "индивидуальная мебель",
+    "мастер мебели",
   ],
 
   openGraph: {
     type: "website",
     url: "/",
     siteName: "mebelisaxli",
-    title: " პროფესიონალი ავეჯის ხელოსანი",
+    title: "პროფესიონალი ავეჯის ხელოსანი",
     description:
       "გადამწყვეტი ხარისხი, ზუსტი ზომები და ინდივიდუალური დიზაინი",
     images: [
       {
-        url: "/og/kitchen.png", 
+        url: ogImageUrl,
         width: 1200,
         height: 630,
         alt: "თანამედროვე სამზარეულო და ავეჯის ნამუშევრები",
@@ -91,7 +95,7 @@ export const metadata: Metadata = {
     title: "Furniture Master – პროფესიონალი ავეჯის ხელოსანი",
     description:
       "მოტივირებული ხელოსანი, რომელიც ქმნის ინდივიდუალურ სამზარეულოსა და ავეჯს მაღალი ხარისხით.",
-    images: ["/og/kitchen.png"],
+    images: [ogImageUrl],
   },
 };
 

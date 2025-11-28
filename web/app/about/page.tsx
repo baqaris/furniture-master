@@ -24,11 +24,11 @@ export default function AboutUs() {
         </p>
       </div>
 
-      {/* 📸 Photos */}
+    
       {/* დიდი ჰორიზონტალური ჰედერის ფოტო – ოფისის ავეჯი + ხელოსანი */}
       <div className={styles.photoHero}>
         <img
-          src="/OfficeWork.png" // აქ ჩასვი ფართო ოფისის ფოტო (wide worker in office)
+          src="/officeWork.png" 
           alt="ოფისის ავეჯი და ხელოსანი მუშაობის პროცესში"
           className={styles.photoHeroImage}
         />

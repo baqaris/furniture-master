@@ -346,3 +346,35 @@
   }
 }
 
+
+
+// მხტუნავი ასეობი ლოადინგზე
+.loadingWrapper {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.loadingText {
+  font-size: 14px;
+  color: $color-primary;
+  display: inline-flex;
+  gap: 1px;
+}
+
+.loadingChar {
+  display: inline-block;
+  animation: bounceChar 1s ease-in-out infinite;
+  transform-origin: bottom;
+}
+
+@keyframes bounceChar {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-4px);
+  }
+  60% {
+    transform: translateY(0);
+  }
+}

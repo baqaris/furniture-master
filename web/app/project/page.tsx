@@ -41,7 +41,7 @@ export default function PublicProjectsPage() {
       .catch((err) => {
         if (axios.isCancel(err)) return;
         console.error(err);
-        setError("ვერ წავიკითხე კატეგორიები");
+        setError("გთხოვ, განაახლო გვერდი და სცადე კიდევ ერთხელ.");
       })
       .finally(() => setLoadingCategories(false));
 
@@ -66,7 +66,7 @@ export default function PublicProjectsPage() {
       .catch((err) => {
         if (axios.isCancel(err)) return;
         console.error(err);
-        setError("ვერ წავიკითხე ნამუშევრები");
+        setError("მოხდა გაუთვალისწინებელი შეცდომა");
       })
       .finally(() => setLoadingProjects(false));
 
@@ -172,7 +172,20 @@ export default function PublicProjectsPage() {
       ) : null}
 
       {loadingProjects ? (
-        <p className={styles.centerText}>იტვირთება ნამუშევრები...</p>
+        <div className={styles.loadingWrapper}>
+          <p className={styles.loadingText}>
+            {Array.from("იტვირთება ნამუშევრები...")
+              .map((char, index) => (
+                <span
+                  key={index}
+                  className={styles.loadingChar}
+                  style={{ animationDelay: `${index * 0.08}s` }}
+                >
+                  {char}
+                </span>
+              ))}
+          </p>
+        </div>
       ) : projects.length === 0 ? (
         <p className={styles.centerText}>
           ამ ფილტრით ნამუშევარი ვერ მოიძებნა.

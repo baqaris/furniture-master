@@ -78,7 +78,7 @@ export const metadata: Metadata = {
       "გადამწყვეტი ხარისხი, ზუსტი ზომები და ინდივიდუალური დიზაინი",
     images: [
       {
-        url: "/og/kitchen.jpg", 
+        url: "/og/kitchen.png", 
         width: 1200,
         height: 630,
         alt: "თანამედროვე სამზარეულო და ავეჯის ნამუშევრები",
@@ -91,7 +91,7 @@ export const metadata: Metadata = {
     title: "Furniture Master – პროფესიონალი ავეჯის ხელოსანი",
     description:
       "მოტივირებული ხელოსანი, რომელიც ქმნის ინდივიდუალურ სამზარეულოსა და ავეჯს მაღალი ხარისხით.",
-    images: ["/og/kitchen.jpg"],
+    images: ["/og/kitchen.png"],
   },
 };
 

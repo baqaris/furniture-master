@@ -13,6 +13,7 @@ import { AuthController } from './auth/auth.controller';
 
 import { PrismaModule } from './prisma/prisma.module';
 import { ContactModule } from './contact/contact.module';
+import { HealthController } from './health/health.controller';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { ContactModule } from './contact/contact.module';
     ProjectsController,
     CategoriesController,
     AuthController,
+    HealthController,
     
   ],
 

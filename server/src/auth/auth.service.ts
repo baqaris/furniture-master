@@ -8,20 +8,26 @@ export interface AdminUser {
 
 @Injectable()
 export class AuthService {
-  // 💡 მარტივი hard-coded admin.
-  // როცა რეალური DB გექნება, ადვილად შეცვლი.
+  // 💡 admin მონაცემები env-იდან
   private readonly admin = {
     id: 1,
-    email: 'admin@lasha.gavtadze',
-    password: 'lasha123', // plain ტექსტი ამ ეტაპზე
+    email: process.env.ADMIN_EMAIL,
+    password: process.env.ADMIN_PASSWORD,
     name: 'ლაშა',
   };
 
   private validateAdmin(email: string, password: string): AdminUser | null {
+    // დაცვა იმ შემთხვევისთვის, თუ env არ არის დაყენებული
+    if (!this.admin.email || !this.admin.password) {
+      console.error('ADMIN_EMAIL ან ADMIN_PASSWORD არ არის დაყენებული env-ში');
+      return null;
+    }
+
     if (email === this.admin.email && password === this.admin.password) {
       const { id, email: adminEmail, name } = this.admin;
       return { id, email: adminEmail, name };
     }
+
     return null;
   }
 
